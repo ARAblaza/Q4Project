@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+	<style>
+		form{
+			padding: 5%;
+		}
+		.btn{
+			font-weight: bold;
+		}
+		header{
+			background: rgba(220, 220, 220, 0.1);
+		}
+		.llweather{
+			height: 125px;
+		}
+	</style>
+</head>
+<body class="bg-dark text-light">
+	<header>
+		<img src="llamamath.png" class="llweather">
+	</header>
+	<form class="form-horizontal" onsubmit="convert(); return false">
+		<label for="num-input"><h5>CONVERT MILLIMETERS</h5></label>
+		<div class="form-group">
+			<br>
+			<input type="number" class="form-control" id="num-input" placeholder="Millimeters">
+		</div>
+		<div class="form-group row">
+			<label for="ansr-display" class="control-label col-sm-1"><h6>Answer:</h6></label>
+			<input type="text" class="form-control bg-dark text-light col-sm-5" id="ansr-display" readonly>
+			<div class="col-sm-1">
+			</div>
+			<select class="form-control bg-dark text-light col-sm-4" id="unit-sel">
+				<option>Centimeter</option>
+				<option>Meter</option>
+				<option>Kilometer</option>
+			</select>
+		</div>
+		<hr>
+		<button class="btn btn-block bg-info text-light" type="submit">CONVERT</button>
+	</form>
+	<script>
+		const display = document.getElementById('ansr-display')
+
+		function convert(){
+			const num = document.getElementById('num-input').value
+			const conUnit = document.getElementById('unit-sel').value
+			console.log(conUnit)
+			if(conUnit == 'Meter'){
+				display.value = num * 0.001 + "m"
+			} else if(conUnit == 'Centimeter'){
+				display.value = num * 0.1 + "cm"
+			} else{
+				display.value = num * 0.000001 + "km"
+			}
+		}
+	</script>
+</body>
+</html>
