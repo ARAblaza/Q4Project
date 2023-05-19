@@ -52,6 +52,10 @@
 			const num = document.getElementById('num-input').value
 			const conUnit = document.getElementById('unit-sel').value
 			console.log(conUnit)
+			if(num == 0){
+				window.alert("Please input a value")
+				return
+			}
 			if(conUnit == 'Meter'){
 				display.value = num * 0.001 + "m"
 			} else if(conUnit == 'Centimeter'){
